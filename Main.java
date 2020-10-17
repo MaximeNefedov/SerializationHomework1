@@ -4,9 +4,30 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) {
+
         StringBuilder sb = new StringBuilder();
 
-        File src = new File("/Users/maksim/Games/src");
+        Creator creator = new Creator();
+        sb.append(creator.addDir("src")).append("\n");
+        sb.append(creator.addDir("res")).append("\n");
+        sb.append(creator.addDir("savegames")).append("\n");
+        sb.append(creator.addDir("temp")).append("\n");
+        sb.append(creator.addDir("src", "main")).append("\n");
+        sb.append(creator.addDir("src", "test")).append("\n");
+        sb.append(creator.addDir("res", "drawables")).append("\n");
+        sb.append(creator.addDir("res", "vectors")).append("\n");
+        sb.append(creator.addDir("res", "icons")).append("\n");
+
+        try {
+            sb.append(creator.addFile("src/main", "Main.java")).append("\n");
+            sb.append(creator.addFile("src/main", "Utils.java")).append("\n");
+            sb.append(creator.addFile("temp", "temp.txt")).append("\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(sb);
+
+        /*File src = new File("/Users/maksim/Games/src");
         DirCreator srcCreator = new DirCreator(src, DirNames.SRC);
         sb.append(srcCreator.addDirInfo()).append("\n");
 
@@ -72,6 +93,6 @@ public class Main {
             e.printStackTrace();
         }
 
-        System.out.println(sb);
+        System.out.println(sb);*/
     }
 }
