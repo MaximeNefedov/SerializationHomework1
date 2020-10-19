@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class Creator {
-    private static String separator = File.separator;
+    private static final String separator = File.separator;
     private final static String DEFAULTPATH = separator + "Users" + separator + "maksim" + separator + "Games";
     private DirCreator dirCreator;
     private FileCreator fileCreator;
